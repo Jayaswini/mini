@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link  rel="stylesheet" href="">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+        function myfunc(){
+            console.log("llll");
+            var x = document.getElementById("fname").value;
+            var y = document.getElementById("myText").value;
+            var z = document.getElementById("pass").value;
+            var w = document.getElementById("name").value;
+      fetch('http://localhost:3000/register',{
+        method:'post',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({
+          email:y,
+          password:z,
+          name:x
+        })
+      }).then(response=>(response.json()))
+       .then(response=>{
+         console.log(response);
+        if(response === 'unable to register'){
+
+           alert("account with similer details already exits")
+        }
+        else {
+           alert("done");
+        }
+      })
+       console.log("1");
+        }
+        function myfunc1(){
+          var y = document.getElementById("myText1").value;
+            var z = document.getElementById("pass1").value;
+            fetch('http://localhost:3000/signin',{
+        method:'post',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({
+          email:y,
+          password:z,
+        })
+      }).then(response=>(response.json()))
+       .then(response=>{
+         console.log(response);
+        if(response === 'yes'){
+
+           alert("Login sucess");
+           location.replace("file:///C:/Users/Jayaswini/MOM/write.html")
+        }
+        else {
+           alert("Wrong credentials");
+        }
+      })
+
+        }
+        function myfunc2(){
+          location.replace("file:///C:/Users/Jayaswini/MOM/signin.html")
+        }
+        function my(){
+          location.replace("file:///C:/Users/Jayaswini/MOM/Blog.html")
+        }
+    </script>
+   <style>
+      .n{
+       float:left;
+       position: relative;
+       top:10px;
+       height:900px;
+       width: 900px;
+     }
+     .g {
+      width: 750px;
+      float: right;
+     }
+     h1{
+       font-size: 56px;
+       text-align: center;
+       position: relative;
+       top: 220px;
+     }
+     h5{
+      font-size: 17px;
+       text-align: center;
+       position: relative;
+       top: 240px;
+     }
+     .m{
+       
+      position: relative;
+       top: 350px;
+       left: 290px;
+       border-radius: 18px;
+       border-color: black;
+     }
+     
+     
+     .p{
+       width:750px;
+       float: left;
+      position: relative;
+       top:550px;
+       height: 800px;
+       
+     }
+     a{
+       color: black;
+     }
+    h4{
+      font-size: 17px;
+       text-align: center;
+       position: relative;
+       top: 400px;
+       right: 100px;
+       
+    }
+    .m1{
+      position: relative;
+       top: 400px;
+       left: 15px;
+       border-radius: 20px;
+       border-color: black;
+       
+    }
+   div{
+     float: right;
+   }
+    
+   </style>
+</head>
+<body>
+  <nav class="navbar navbar-dark default-color justify-content-between shadow-sm p-3 bg-white rounded">
+    
+    <form class="form-inline my-1">
+      <div class="md-form form-sm my-0">
+      </div>
+      <a href="Blog.html">Blog</a>
+    </form>
+  </nav>
+  <img class="g" src="https://static.wixstatic.com/media/9a25f2_f3af215d3c6c4e05b7c97950de2439a4~mv2.png/v1/fill/w_640,h_640,al_c,q_90,usm_0.66_1.00_0.01/9a25f2_f3af215d3c6c4e05b7c97950de2439a4~mv2.webp">
+  <h1><b>An Experience is</b></h1>
+   <h1><b>  worth Sharing</b></h1>  
+   <h5>Bring on Your ideas on travelling and </h5>
+     <h5>let everyone know about your experiences,adventures</h5> 
+     <button class="m btn btn-secondary" onclick="myfunc2()">Start Blogging</button>
+     <div class="o"></div>
+     <h5>write your own stories.</h5>
+     <h5>
+       Let the world know about your amazing experiences
+     </h5><br><br>
+     <img class="n" src="https://speckyboy.com/wp-content/uploads/2019/01/free-blog-magazine-design-photoshop-psd-template-04.jpg">
+     <div>
+     <h4>Share your experiences</h4><br>
+   <h4>Get to know more from others experiences</h4><br><br>
+   <button class="m1 btn btn-secondary" onclick="myfunc2()">Create your own blog</button>
+   </div>
+   
+     
+    
+</body>
